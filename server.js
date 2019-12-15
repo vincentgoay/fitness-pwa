@@ -34,17 +34,17 @@ app.use('api/protected', user.router)     // TODO: Check credential before allow
 // app.use('/members', member)
 
 // Serve angular application from Server side
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Response 404 in JSON
 // This should be the last in order that capture anything undefine.
 // Normal practise is to either return 404 or index.html 
-// app.use((req, resp) => {
-//     resp.status(404).type('application/json')
-//         .json({
-//             message: 'Page Not Found'
-//         })
-// })
+app.use((req, resp) => {
+    resp.status(404).type('application/json')
+        .json({
+            message: 'Page Not Found'
+        })
+})
 
 //-----------------------------
 // Starting up application
